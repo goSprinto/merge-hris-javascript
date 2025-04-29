@@ -149,6 +149,9 @@ class Employee {
             if (data.hasOwnProperty('remote_data')) {
                 obj['remote_data'] = ApiClient.convertToType(data['remote_data'], [RemoteData]);
             }
+            if (data.hasOwnProperty('field_mappings')) {
+                obj['field_mappings'] = ApiClient.convertToType(data['field_mappings'], {'String': Object});
+            }
             if (data.hasOwnProperty('custom_fields')) {
                 obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], {'String': Object});
             }
@@ -332,6 +335,12 @@ Employee.prototype['avatar'] = undefined;
  * @member {Array.<module:model/RemoteData>} remote_data
  */
 Employee.prototype['remote_data'] = undefined;
+
+/**
+ * The field mappings for the employee configured in Field Mappings Dashboard.
+ * @member {Object.<String, Object>} field_mappings
+ */
+Employee.prototype['field_mappings'] = undefined;
 
 /**
  * Custom fields configured for a given model.
